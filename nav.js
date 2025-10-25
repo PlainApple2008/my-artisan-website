@@ -6,6 +6,14 @@ function getCurrentFilePath() {
     return window.location.pathname;
 }
 
+function test() {
+    let testp = document.getElementById("test");
+    
+    testp.innerHTML = getCurrentFilePath();
+}
+
+test();
+
 function createNavigation() {
     const header = document.getElementsByTagName("header")[0];
     
@@ -19,6 +27,7 @@ function createNavigation() {
         let a = document.createElement("a");
         
         let userInCurrentPage = pageAnchors[i] === getCurrentFilePath();
+        userInCurrentPage ||= pageAnchors[i] === "." + getCurrentFilePath();
         
         if (userInCurrentPage) {
             a.classList.add("active-page");
