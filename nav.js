@@ -1,6 +1,6 @@
 // Global Data
 const pageLinkDisplay = ["Home", "About Me"];
-const pageAnchors = ["/index.html", "/about.html"];
+const pageAnchors = ["./index.html", "./about.html"];
 
 function getCurrentFilePath() {
     return window.location.pathname;
