@@ -1,6 +1,13 @@
 // Global Data
 const pageLinkDisplay = ["Home", "About Me"];
-const pageAnchors = ["./index.html", "./about.html"];
+const navPageAnchors = ["./index.html", "./about.html"];
+const pageAnchors = [
+    "./index.html",
+    "./about.html",
+    "./disciplines/digital_art.html",
+    "./disciplines/music.html",
+    "./disciplines/programming.html",
+];
 
 function getCurrentFilePath() {
     return window.location.pathname;
@@ -16,25 +23,25 @@ test();
 
 function createNavigation() {
     const header = document.getElementsByTagName("header")[0];
-    
     const nav = document.createElement("nav");
-    
     const ul = document.createElement("ul");
     
-    for (let i = 0; i < pageAnchors.length; i++) {
+    for (let i = 0; i < navPageAnchors.length; i++) {
         let li = document.createElement("li");
-        
         let a = document.createElement("a");
         
-        let userInCurrentPage = pageAnchors[i] === getCurrentFilePath();
-        userInCurrentPage ||= pageAnchors[i] === "." + getCurrentFilePath();
+        let userInCurrentPage = navPageAnchors[i] === getCurrentFilePath();
+        userInCurrentPage ||= navPageAnchors[i] === "." + getCurrentFilePath();
         
         if (userInCurrentPage) {
+            // Set as active page
             a.classList.add("active-page");
         } else {
-            a.setAttribute("href", pageAnchors[i]);
+            // Add anchor
+            a.setAttribute("href", navPageAnchors[i]);
         }
         
+        // Set link display
         a.innerHTML = pageLinkDisplay[i];
         
         li.appendChild(a);
@@ -43,7 +50,6 @@ function createNavigation() {
     
     nav.appendChild(ul);
     header.appendChild(nav);
-    // console.log(header);
 }
 
 function insertFooterContent() {
