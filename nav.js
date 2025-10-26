@@ -16,7 +16,12 @@ function getCurrentFilePath() {
 function test() {
     let testp = document.getElementById("test");
     
-    testp.innerHTML = getCurrentFilePath();
+    testp.innerHTML =
+        "pathname= " + getCurrentFilePath() + "<br>" +
+        "host= " + window.location.host + "<br>" + 
+        "hostname= " + window.location.hostname + "<br>" + 
+        "href= " + window.location.href + "<br>" + 
+        "hash= " + window.location.hash;
 }
 
 test();
